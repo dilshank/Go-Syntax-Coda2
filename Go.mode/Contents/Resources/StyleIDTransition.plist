@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>/Go/Backticks</key>
+	<string>Backticks</string>
+	<key>/Go/Built-In Functions</key>
+	<string>_Default.Built-In Functions</string>
+	<key>/Go/Built-in Constants</key>
+	<string>_Default.Built-in Constants</string>
+	<key>/Go/Exceptions</key>
+	<string>_Default.Exceptions</string>
+	<key>/Go/Keywords</key>
+	<string>_Default.Keywords</string>
+	<key>/Go/Numbers</key>
+	<string>_Default.Numbers</string>
+	<key>/Go/Singleline Comment</key>
+	<string>Singleline Comment</string>
+	<key>/Go/Special Attributes</key>
+	<string>_Default.Special Attributes</string>
+	<key>/Go/Special Methods</key>
+	<string>_Default.Special Methods</string>
+	<key>/Go/String with double quotes</key>
+	<string>String with double quotes</string>
+	<key>/Go/String with single quotes</key>
+	<string>String with single quotes</string>
+	<key>/Go/String with triple double quotes</key>
+	<string>String with triple double quotes</string>
+	<key>/Go/String with triple single quotes</key>
+	<string>String with triple single quotes</string>
+	<key>/Go/Types</key>
+	<string>_Default.Types</string>
+	<key>_Default</key>
+	<string>_Default</string>
+</dict>
+</plist>

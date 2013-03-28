@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE syntax SYSTEM "syntax.dtd">
+<syntax>
+
+	<head>
+		<name>Go</name> <!-- The definitions title -->
+		<charsintokens><![CDATA[_0987654321abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@]]></charsintokens> <!-- Valid Characters for Variables -->
+	</head>
+
+	<states>
+
+		<default id="Base" scope="meta.default">
+		
+			<state id="Container" containerState="yes" scope="meta.default">
+			
+				<!-- DK ADDED (defaults from Python) -->
+				<!-- Needs to go through documentation and fill out -->
+				<keywords id="Built-in Constants" useforautocomplete="yes" scope="support.constant">
+					<string>true</string>
+					<string>false</string>
+					<string>nil</string>
+				</keywords>
+				<!-- DK ADDED -->
+				<keywords id="Types" useforautocomplete="yes" scope="keyword.type">
+					<string>uint8</string>
+					<string>uint16</string>
+					<string>uint32</string>
+					<string>uint64</string>
+					<string>int8</string>
+					<string>int16</string>
+					<string>int32</string>
+					<string>int64</string>
+					<string>float32</string>
+					<string>float64</string>
+					<string>byte</string>
+					<string>uint</string>
+					<string>int</string>
+					<string>float</string>
+					<string>uintptr</string>
+					<string>string</string>
+					<string>bool</string>
+				</keywords>
+
+				<!-- DK ADDED -->
+				<keywords id="Built-In Functions" useforautocomplete="yes" scope="support.function">
+					<string>len</string>
+					<string>cap</string>
+					<string>new</string>
+					<string>make</string>
+					<string>close</string>
+					<string>closed</string>
+					<string>print</string>
+					<string>println</string>
+					<string>panic</string>
+					<string>panicln</string>
+					<string>Alignof</string>
+					<string>Offsetof</string>
+					<string>Sizeof</string>
+					<string>Reflect</string>
+					<string>Typeof</string>
+					<string>Unreflect</string>
+				</keywords>
+				
+				<!-- DK ADDED -->
+				<!-- Needs to go through documentation and fill out -->
+				<keywords id="Keywords" useforautocomplete="yes" scope="keyword">
+					<string>import</string>
+					<string>print</string>
+					<string>return</string>
+					<string>self</string>
+					<string>package</string>
+					<string>struct</string>
+					<string>type</string>
+					<string>var</string>
+					<string>iota</string>
+					<string>const</string>
+					<string>interface</string>
+					<string>map</string>
+					<string>range</string>
+					<string>func</string>
+				</keywords>
+				
+				<!-- DK ADDED -->
+				<keywords id="Keywords" useforautocomplete="yes" scope="keyword.control">
+					<string>break</string>
+					<string>case</string>
+					<string>chan</string>
+					<string>continue</string>
+					<string>default</string>
+					<string>defer</string>
+					<string>else</string>
+					<string>fallthrough</string>
+					<string>for</string>
+					<string>go</string>
+					<string>goto</string>
+					<string>if</string>
+					<string>select</string>
+					<string>switch</string>
+				</keywords>
+				
+				<!-- DK ADDED -->
+				<keywords id="Numbers" useforautocomplete="no" scope="constant.numeric">
+					<!-- floats and integers both i guess -->
+					<regex>(?&lt;![\w\d_])((?:[+-]?(?:(?:[0-9]+\.[0-9]*)|(?:\.[0-9]+))(?:[eE][+\-]?[0-9]+)?[fFlL]?)|(?:(?:(?:[1-9][0-9]*)|0[0-7]*|(?:0[xX][0-9a-fA-F]+))(?:(?:[uU][lL]?)|(?:[lL][uU]?))?))(?![\w\d_])</regex>
+				</keywords>
+				
+				<!-- DK ADDED -->
+				<state id="Comment" type="comment" scope="comment.block">
+					<begin><regex>/\*</regex></begin>
+					<end><regex>\*/</regex></end>
+					<import mode="Base" state="EmailAndURLContainerState" keywords-only="yes"/>
+				</state>
+				
+				<!-- DK ADDED -->
+				<state id="Singleline Comment" type="comment" scope="comment.line">
+					<begin><regex>//</regex></begin>
+					<end><regex>[\n\r]</regex></end>
+					<import mode="Base" state="EmailAndURLContainerState" keywords-only="yes"/>
+				</state>
+	
+				<!-- DK ADDED -->
+				<!-- CODA <state id="String with double quotes" type="string"> -->
+				<state id="String with double quotes" type="string" usespellchecking="yes" scope="string.double">
+					<begin><regex>"</regex></begin>
+					<end><regex>(((?&lt;!\\)(\\\\)*)|^)"</regex></end>
+				</state>
+	
+				<!-- DK ADDED -->
+				<!-- CODA <state id="String with single quotes" type="string"> -->
+				<state id="String with single quotes" type="string" usespellchecking="yes" scope="string.single">
+					<begin><regex>'</regex></begin>
+					<end><regex>(((?&lt;!\\)(\\\\)*)|^)'</regex></end>
+				</state>
+				
+				<!-- DK ADDED -->
+				<state id="Backticks" scope="meta.default">
+					<begin><regex>`</regex></begin>
+					<end><regex>(((?&lt;!\\)(\\\\)*)|^)`</regex></end>
+				</state>
+
+			</state>
+
+			<!-- DK ADDED -->
+			<import mode="Go" state="Container" keywords-only="yes"/>
+			<import mode="Go" state="Container" />
+
+		</default>
+
+	</states>
+
+</syntax>

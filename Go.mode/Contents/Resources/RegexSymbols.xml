@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE syntax SYSTEM "symbol.dtd">
+<symbols>
+
+    <blocks>
+        <beginregex>{</beginregex>
+        <endregex>}</endregex>
+    </blocks>
+    
+    <symbol id="Functions" image="SymbolF()" indentation="1" ignoreblocks="yes">
+		<regex>^func[\s]*[\w]+\(.*\)[\w\s_\*\.]*{</regex>
+		<postprocess>
+			<find>func</find>
+			<replace></replace>
+			<find>func</find>
+			<replace></replace>
+			<find>[\n\r]+</find>
+			<replace> </replace>
+			<find>[ \t]+</find>
+			<replace> </replace>
+			<find>[{}]</find>
+			<replace></replace>
+		</postprocess>
+    </symbol>
+    
+	<symbol id="Go Methods" image="SymbolM" indentation="1" ignoreblocks="yes">
+		<regex>^func[\s]*\(+.*\)[\w\s_\[\]()\*\.]*{</regex>
+		<postprocess>
+			<find>func</find>
+			<replace></replace>
+			<find>[\n\r]+</find>
+			<replace> </replace>
+			<find>[ \t]+</find>
+			<replace> </replace>
+			<find>[{}]</find>
+			<replace></replace>
+		</postprocess>
+	</symbol>
+
+	<symbol id="Type Definitions" image="SymbolT" indentation="1">
+		<regex>^type[\s\t]+[\w]*.*[^{\r\n]</regex>
+		<postprocess>
+			<find>type[\s\t]</find>
+			<replace></replace>
+			<find>[\n\r]+</find>
+			<replace> </replace>
+			<find>[ \t]+</find>
+			<replace> </replace>
+			<find>[{}]</find>
+			<replace></replace>
+		</postprocess>
+	</symbol>
+	
+	<symbol id="labels" image="SymbolWarn">
+		<regex>^[\w]*:</regex>
+	</symbol>
+
+    <symbol id="Versioning conflict" font-weight="bold" image="SymbolWarn" indentation="0" ignoreblocks="no">
+        <regex>^&lt;&lt;&lt;&lt;&lt;&lt;&lt;([\n\r]|.)*?======([\n\r]|.)*?&gt;&gt;&gt;&gt;&gt;&gt;&gt;</regex>
+        <postprocess>
+            <find>.*</find>
+            <replace>Versioning conflict!</replace>
+        </postprocess>
+    </symbol>
+
+	 <!-- CODA -->
+    <symbol id="Pragma marks" font-weight="normal" font-style="normal" image="SymbolMark" indentation="0" ignoreblocks="no" show-in-comments="yes">
+        <regex>// !([^\n\r]+)</regex>
+    </symbol>
+
+</symbols>
